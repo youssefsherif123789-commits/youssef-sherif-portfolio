@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youssef Sherif | Computer Engineering & Data Analysis Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+            color: #f3f4f6;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-nav {
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #f472b6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glow-effect:hover {
+            box-shadow: 0 0 25px -5px rgba(99, 102, 241, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-[#0b0f19] text-gray-100 antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#hero" class="text-xl font-bold tracking-tight flex items-center gap-2">
+                <span class="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-extrabold shadow-lg shadow-indigo-500/30">YS</span>
+                <span class="gradient-text font-extrabold text-lg">Youssef Sherif</span>
+            </a>
+            
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <a href="#about" class="hover:text-indigo-400 transition-colors">About</a>
+                <a href="#skills" class="hover:text-indigo-400 transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-indigo-400 transition-colors">Projects</a>
+                <a href="#education" class="hover:text-indigo-400 transition-colors">Education</a>
+                <a href="#services" class="hover:text-indigo-400 transition-colors">Services</a>
+                <a href="#contact" class="hover:text-indigo-400 transition-colors">Contact</a>
+            </nav>
+
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#contact" class="px-4 py-2 rounded-xl bg-indigo-600 text-white font-medium text-sm hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-600/35 hover:scale-105">
+                    Let's Talk
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2 rounded-lg bg-gray-800/50">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-b border-gray-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:bg-gray-800/80 hover:text-indigo-400">About</a>
+            <a href="#skills" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:bg-gray-800/80 hover:text-indigo-400">Skills</a>
+            <a href="#projects" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:bg-gray-800/80 hover:text-indigo-400">Projects</a>
+            <a href="#education" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:bg-gray-800/80 hover:text-indigo-400">Education</a>
+            <a href="#services" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:bg-gray-800/80 hover:text-indigo-400">Services</a>
+            <a href="#contact" class="block px-3 py-2 rounded-lg text-base font-medium text-indigo-400 bg-indigo-950/40 border border-indigo-800/50">Contact Me</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden">
+        <!-- Background Glow Orbs -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-950/80 border border-indigo-700/40 text-indigo-300 text-xs sm:text-sm font-medium mb-6 shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                Final-Year Computer Engineering Student at Modern Academy
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6">
+                Hi, I'm <span class="gradient-text">Youssef Sherif</span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-lg sm:text-xl text-gray-300 mb-8 leading-relaxed font-light">
+                Bridging hardware, software, and data intelligence. Specialized in <span class="text-indigo-400 font-medium">Data Analysis</span>, <span class="text-indigo-400 font-medium">Python</span>, <span class="text-indigo-400 font-medium">SQL</span>, and intelligent backend database architectures.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#projects" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-500 transition-all shadow-xl shadow-indigo-600/30 flex items-center justify-center gap-2 group">
+                    <span>View My Projects</span>
+                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card text-gray-200 font-semibold hover:bg-gray-800/80 transition-all border border-gray-700/60 flex items-center justify-center gap-2">
+                    <span>Contact Me</span>
+                    <i class="fa-regular fa-envelope"></i>
+                </a>
+            </div>
+
+            <!-- Quick Stats Bar -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div class="glass-card p-4 rounded-2xl text-center border border-gray-800">
+                    <div class="text-2xl sm:text-3xl font-bold text-indigo-400">Final Year</div>
+                    <div class="text-xs text-gray-400 mt-1">Computer Engineering</div>
+                </div>
+                <div class="glass-card p-4 rounded-2xl text-center border border-gray-800">
+                    <div class="text-2xl sm:text-3xl font-bold text-purple-400">Data & AI</div>
+                    <div class="text-xs text-gray-400 mt-1">Focus Areas</div>
+                </div>
+                <div class="glass-card p-4 rounded-2xl text-center border border-gray-800">
+                    <div class="text-2xl sm:text-3xl font-bold text-pink-400">SQL & Python</div>
+                    <div class="text-xs text-gray-400 mt-1">Core Tech Stack</div>
+                </div>
+                <div class="glass-card p-4 rounded-2xl text-center border border-gray-800">
+                    <div class="text-2xl sm:text-3xl font-bold text-emerald-400">Ready</div>
+                    <div class="text-xs text-gray-400 mt-1">For Internships & Roles</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-24 relative bg-gray-950/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-widest text-indigo-400 mb-3">Background & Ambitions</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">About Me</h3>
+                <div class="w-16 h-1 bg-indigo-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="glass-card p-8 rounded-3xl border border-gray-800/80 shadow-2xl space-y-6">
+                        <h4 class="text-xl font-semibold text-white flex items-center gap-3">
+                            <i class="fa-solid fa-graduation-cap text-indigo-400"></i>
+                            Professional Introduction
+                        </h4>
+                        <p class="text-gray-300 leading-relaxed font-light">
+                            I am Youssef Sherif, a final-year Computer Engineering student at Modern Academy. My academic journey has equipped me with a rigorous foundation in software design, digital architecture, and problem-solving, which I actively channel into data analysis and database development.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed font-light">
+                            I enjoy uncovering hidden patterns in complex datasets, designing normalized relational databases, and building robust analytical tools in Python.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="glass-card p-8 rounded-3xl border border-gray-800/80 shadow-2xl space-y-6">
+                        <h4 class="text-xl font-semibold text-white flex items-center gap-3">
+                            <i class="fa-solid fa-bullseye text-purple-400"></i>
+                            Interests & Career Goals
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-lg bg-indigo-950 text-indigo-400 flex items-center justify-center shrink-0 mt-1 font-bold">1</div>
+                                <div>
+                                    <h5 class="text-white font-medium">Core Interests</h5>
+                                    <p class="text-gray-400 text-sm mt-1">Data Analysis, Software Development, Relational Databases, Python Automation, SQL optimization, and Artificial Intelligence.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-lg bg-purple-950 text-purple-400 flex items-center justify-center shrink-0 mt-1 font-bold">2</div>
+                                <div>
+                                    <h5 class="text-white font-medium">Career Objectives</h5>
+                                    <p class="text-gray-400 text-sm mt-1">Seeking entry-level opportunities as a Data Analyst, Database Developer, or Junior Software Engineer where I can contribute to data-driven decision making and scalable software.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-widest text-indigo-400 mb-3">Technical Proficiency</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">My Skills</h3>
+                <div class="w-16 h-1 bg-indigo-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Programming -->
+                <div class="glass-card p-6 rounded-2xl border border-gray-800 hover:border-indigo-500/50 transition-all">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white">Programming</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">Python</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">Java</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">C / C++</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">VHDL</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">HTML / CSS / JavaScript</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">OOP</span>
+                    </div>
+                </div>
+
+                <!-- Data Analysis -->
+                <div class="glass-card p-6 rounded-2xl border border-gray-800 hover:border-indigo-500/50 transition-all">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-purple-600/20 text-purple-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white">Data Analysis</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">Pandas</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">NumPy</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">Matplotlib</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">Data Cleaning</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">Data Analysis</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">Data Visualization</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">Excel</span>
+                    </div>
+                </div>
+
+                <!-- Databases -->
+                <div class="glass-card p-6 rounded-2xl border border-gray-800 hover:border-indigo-500/50 transition-all">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-pink-600/20 text-pink-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white">Databases</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">SQL</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">MySQL</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">Microsoft SQL Server</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">Oracle / PL-SQL</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">Database Design</span>
+                    </div>
+                </div>
+
+                <!-- Machine Learning & AI -->
+                <div class="glass-card p-6 rounded-2xl border border-gray-800 hover:border-indigo-500/50 transition-all">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white">Machine Learning</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">Scikit-learn</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">Predictive Modeling</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">Classification Algorithms</span>
+                    </div>
+                </div>
+
+                <!-- Tools & Technologies -->
+                <div class="glass-card p-6 rounded-2xl border border-gray-800 hover:border-indigo-500/50 transition-all md:col-span-2 lg:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-amber-600/20 text-amber-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white">Tools & Technologies</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">Git / GitHub</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">Jupyter Notebook</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-900 border border-gray-800 text-sm text-gray-300 font-medium">IDE Workflows</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 relative bg-gray-950/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-widest text-indigo-400 mb-3">Portfolio Work</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Featured Projects</h3>
+                <div class="w-16 h-1 bg-indigo-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project 1: Superstore Data Analysis -->
+                <div class="glass-card rounded-3xl border border-gray-800 overflow-hidden flex flex-col justify-between hover:border-indigo-500/50 transition-all group">
+                    <div class="p-8 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/50 text-indigo-300 text-xs font-semibold">Data Analysis & Python</span>
+                            <i class="fa-solid fa-chart-pie text-indigo-400 text-2xl group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white">Superstore Data Analysis</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed font-light">
+                            Comprehensive retail data investigation designed to uncover profit drivers, regional sales trends, and customer buying patterns.
+                        </p>
+                        <div>
+                            <h5 class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Main Features & Workflow</h5>
+                            <ul class="space-y-1.5 text-sm text-gray-300">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400 text-xs"></i> Rigorous data cleaning & missing value treatment</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400 text-xs"></i> Exploratory Data Analysis (EDA) & feature engineering</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400 text-xs"></i> Detailed sales, profit, and discount impact analysis</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-indigo-400 text-xs"></i> High-impact visual reporting with Matplotlib & Pandas</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2.5 py-1 rounded-md bg-gray-900 border border-gray-800 text-xs text-indigo-300 font-mono">Python</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-900 border border-gray-800 text-xs text-indigo-300 font-mono">Pandas</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-900 border border-gray-800 text-xs text-indigo-300 font-mono">Matplotlib</span>
+                        </div>
+                    </div>
+                    <div class="px-8 py-4 bg-gray-900/60 border-t border-gray-800/80 flex items-center justify-between">
+                        <a href="[YOUR GITHUB]" target="_blank" class="inline-flex items-center gap-2 text-sm font-medium text-indigo-400 hover:text-indigo-300">
+                            <i class="fa-brands fa-github text-base"></i> GitHub Repository
+                        </a>
+                        <a href="[PROJECT DEMO]" target="_blank" class="inline-flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-white">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Bank Marketing Prediction -->
+                <div class="glass-card rounded-3xl border border-gray-800 overflow-hidden flex flex-col justify-between hover:border-indigo-500/50 transition-all group">
+                    <div class="p-8 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-purple-950/80 border border-purple-700/50 text-purple-300 text-xs font-semibold">Machine Learning</span>
+                            <i class="fa-solid fa-brain text-purple-400 text-2xl group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white">Bank Marketing Prediction</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed font-light">
+                            Supervised machine learning model designed to predict customer campaign conversion rates using client financial and demographic attributes.
+                        </p>
+                        <div>
+                            <h5 class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Main Features & Workflow</h5>
+                            <ul class="space-y-1.5 text-sm text-gray-300">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400 text-xs"></i> Comparative classifier modeling (Logistic Regression, Decision Tree, SVM)</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400 text-xs"></i> Model training, tuning, and evaluation using Scikit-learn</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400 text-xs"></i> Interactive GUI implementation for easy user inference</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-purple-400 text-xs"></i> Performance metrics comparison and feature importance</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2.5 py-1 rounded-md bg-gray-900 border border-gray-800 text-xs text-purple-300 font-mono">Python</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-900 border border-gray-800 text-xs text-purple-300 font-mono">Scikit-learn</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-900 border border-gray-800 text-xs text-purple-300 font-mono">GUI</span>
+                        </div>
+                    </div>
+                    <div class="px-8 py-4 bg-gray-900/60 border-t border-gray-800/80 flex items-center justify-between">
+                        <a href="[YOUR GITHUB]" target="_blank" class="inline-flex items-center gap-2 text-sm font-medium text-indigo-400 hover:text-indigo-300">
+                            <i class="fa-brands fa-github text-base"></i> GitHub Repository
+                        </a>
+                        <a href="[PROJECT DEMO]" target="_blank" class="inline-flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-white">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3: Bus Transportation Database System -->
+                <div class="glass-card rounded-3xl border border-gray-800 overflow-hidden flex flex-col justify-between hover:border-indigo-500/50 transition-all group">
+                    <div class="p-8 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-pink-950/80 border border-pink-700/50 text-pink-300 text-xs font-semibold">Database Architecture</span>
+                            <i class="fa-solid fa-database text-pink-400 text-2xl group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white">Bus Transportation Database System</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed font-light">
+                            Enterprise-grade relational database management system built to handle routes, schedules, bookings, and fleet operations.
+                        </p>
+                        <div>
+                            <h5 class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Main Features & Workflow</h5>
+                            <ul class="space-y-1.5 text-sm text-gray-300">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-pink-400 text-xs"></i> Comprehensive ER diagram & normalized relational schema design</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-pink-400 text-xs"></i> Advanced SQL implementation (Views, Triggers, Functions, Procedures)</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-pink-400 text-xs"></i> Java database integration for transactional operations</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-pink-400 text-xs"></i> Operational reporting and schedule auditing</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2.5 py-1 rounded-md bg-gray-900 border border-gray-800 text-xs text-pink-300 font-mono">SQL</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-900 border border-gray-800 text-xs text-pink-300 font-mono">Java</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-900 border border-gray-800 text-xs text-pink-300 font-mono">MySQL / SQL Server</span>
+                        </div>
+                    </div>
+                    <div class="px-8 py-4 bg-gray-900/60 border-t border-gray-800/80 flex items-center justify-between">
+                        <a href="[YOUR GITHUB]" target="_blank" class="inline-flex items-center gap-2 text-sm font-medium text-indigo-400 hover:text-indigo-300">
+                            <i class="fa-brands fa-github text-base"></i> GitHub Repository
+                        </a>
+                        <a href="[PROJECT DEMO]" target="_blank" class="inline-flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-white">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4: Other Academic & Technical Projects -->
+                <div class="glass-card rounded-3xl border border-gray-800 overflow-hidden flex flex-col justify-between hover:border-indigo-500/50 transition-all group">
+                    <div class="p-8 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/50 text-emerald-300 text-xs font-semibold">Engineering & Software</span>
+                            <i class="fa-solid fa-microchip text-emerald-400 text-2xl group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white">Other Academic & Technical Projects</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed font-light">
+                            Diverse collection of engineering projects completed throughout coursework at Modern Academy.
+                        </p>
+                        <div>
+                            <h5 class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Project Highlights</h5>
+                            <ul class="space-y-1.5 text-sm text-gray-300">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> Python automation scripts & utility applications</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> Relational database schema designs and query optimization</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> Computer networking simulations & protocol analyses</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> Digital logic design & VHDL hardware description implementations</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2.5 py-1 rounded-md bg-gray-900 border border-gray-800 text-xs text-emerald-300 font-mono">Python</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-900 border border-gray-800 text-xs text-emerald-300 font-mono">VHDL</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-900 border border-gray-800 text-xs text-emerald-300 font-mono">Networking</span>
+                        </div>
+                    </div>
+                    <div class="px-8 py-4 bg-gray-900/60 border-t border-gray-800/80 flex items-center justify-between">
+                        <a href="[YOUR GITHUB]" target="_blank" class="inline-flex items-center gap-2 text-sm font-medium text-indigo-400 hover:text-indigo-300">
+                            <i class="fa-brands fa-github text-base"></i> GitHub Repository
+                        </a>
+                        <a href="[PROJECT DEMO]" target="_blank" class="inline-flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-white">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-widest text-indigo-400 mb-3">Academic Background</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Education</h3>
+                <div class="w-16 h-1 bg-indigo-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="glass-card p-8 sm:p-10 rounded-3xl border border-gray-800 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-600/10 rounded-full blur-2xl pointer-events-none"></div>
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                        <div>
+                            <h4 class="text-2xl font-bold text-white">Modern Academy</h4>
+                            <p class="text-indigo-400 font-medium text-lg mt-1">B.Sc. in Computer Engineering</p>
+                        </div>
+                        <span class="px-4 py-1.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-700/50 text-sm font-semibold self-start sm:self-auto">
+                            Final Year Student
+                        </span>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed font-light mb-6">
+                        Pursuing a rigorous engineering curriculum focusing on advanced computing architectures, database systems, software engineering principles, algorithms, and data analysis.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-3 py-1 rounded-lg bg-gray-900 text-gray-300 text-xs font-medium border border-gray-800">Software Engineering</span>
+                        <span class="px-3 py-1 rounded-lg bg-gray-900 text-gray-300 text-xs font-medium border border-gray-800">Database Systems</span>
+                        <span class="px-3 py-1 rounded-lg bg-gray-900 text-gray-300 text-xs font-medium border border-gray-800">Data Structures & Algorithms</span>
+                        <span class="px-3 py-1 rounded-lg bg-gray-900 text-gray-300 text-xs font-medium border border-gray-800">Digital Logic</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 relative bg-gray-950/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-widest text-indigo-400 mb-3">What I Offer</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Services</h3>
+                <div class="w-16 h-1 bg-indigo-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="glass-card p-8 rounded-3xl border border-gray-800 hover:border-indigo-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-chart-column"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Data Analysis</h4>
+                    <p class="text-gray-300 text-sm leading-relaxed font-light">
+                        Extracting actionable insights from raw datasets using Pandas, NumPy, and statistical methods to support data-driven decision-making.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="glass-card p-8 rounded-3xl border border-gray-800 hover:border-indigo-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-600/20 text-purple-400 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-broom"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Data Cleaning</h4>
+                    <p class="text-gray-300 text-sm leading-relaxed font-light">
+                        Transforming messy, incomplete, or unstructured datasets into clean, reliable formats ready for modeling and reporting.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="glass-card p-8 rounded-3xl border border-gray-800 hover:border-indigo-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-2xl bg-pink-600/20 text-pink-400 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">SQL Database Development</h4>
+                    <p class="text-gray-300 text-sm leading-relaxed font-light">
+                        Designing normalized relational schemas, writing complex queries, stored procedures, triggers, and views in MySQL, MS SQL Server, and Oracle.
+                    </p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="glass-card p-8 rounded-3xl border border-gray-800 hover:border-indigo-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Data Visualization</h4>
+                    <p class="text-gray-300 text-sm leading-relaxed font-light">
+                        Building clear, impactful charts and visual plots using Matplotlib and Excel to effectively communicate trends to stakeholders.
+                    </p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="glass-card p-8 rounded-3xl border border-gray-800 hover:border-indigo-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-600/20 text-amber-400 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Python Automation</h4>
+                    <p class="text-gray-300 text-sm leading-relaxed font-light">
+                        Developing custom Python scripts and desktop utilities to automate repetitive tasks, data processing pipelines, and reporting workflows.
+                    </p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="glass-card p-8 rounded-3xl border border-gray-800 hover:border-indigo-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-600/20 text-cyan-400 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-desktop"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Dashboard Development</h4>
+                    <p class="text-gray-300 text-sm leading-relaxed font-light">
+                        Creating intuitive dashboards and report interfaces to track key performance indicators and operational metrics.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-widest text-indigo-400 mb-3">Get In Touch</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Contact Me</h3>
+                <div class="w-16 h-1 bg-indigo-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Contact Information & Links -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="glass-card p-8 rounded-3xl border border-gray-800 space-y-8">
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-2">Let's Connect</h4>
+                            <p class="text-gray-300 text-sm leading-relaxed font-light">
+                                I am currently looking for internships, junior Data Analyst roles, and Software/Database positions. Feel free to reach out via email or connect with me on professional networks.
+                            </p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <a href="mailto:[YOUR EMAIL]" class="flex items-center gap-4 p-4 rounded-2xl bg-gray-900/60 border border-gray-800 hover:border-indigo-500/50 transition-all group">
+                                <div class="w-10 h-10 rounded-xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-400">Email</div>
+                                    <div class="text-sm font-medium text-white">[YOUR EMAIL]</div>
+                                </div>
+                            </a>
+
+                            <a href="[YOUR LINKEDIN]" target="_blank" class="flex items-center gap-4 p-4 rounded-2xl bg-gray-900/60 border border-gray-800 hover:border-indigo-500/50 transition-all group">
+                                <div class="w-10 h-10 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-400">LinkedIn</div>
+                                    <div class="text-sm font-medium text-white">[YOUR LINKEDIN]</div>
+                                </div>
+                            </a>
+
+                            <a href="[YOUR GITHUB]" target="_blank" class="flex items-center gap-4 p-4 rounded-2xl bg-gray-900/60 border border-gray-800 hover:border-indigo-500/50 transition-all group">
+                                <div class="w-10 h-10 rounded-xl bg-purple-600/20 text-purple-400 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                                    <i class="fa-brands fa-github"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-400">GitHub</div>
+                                    <div class="text-sm font-medium text-white">[YOUR GITHUB]</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-7">
+                    <div class="glass-card p-8 sm:p-10 rounded-3xl border border-gray-800">
+                        <form id="contact-form" class="space-y-6" onsubmit="handleFormSubmit(event)">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-300 mb-2">Your Name</label>
+                                    <input type="text" id="name" required class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 transition-colors" placeholder="John Doe">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-300 mb-2">Your Email</label>
+                                    <input type="email" id="email" required class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 transition-colors" placeholder="john@example.com">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Subject</label>
+                                <input type="text" id="subject" required class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 transition-colors" placeholder="Project Inquiry / Internship Opportunity">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                                <textarea id="message" rows="5" required class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 transition-colors" placeholder="Write your message here..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-4 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-500 transition-all shadow-xl shadow-indigo-600/30 flex items-center justify-center gap-2">
+                                <span>Send Message</span>
+                                <i class="fa-solid fa-paper-plane text-sm"></i>
+                            </button>
+                            <div id="form-success-msg" class="hidden p-4 rounded-xl bg-emerald-950/60 border border-emerald-800/80 text-emerald-300 text-sm text-center">
+                                Thank you! Your message has been sent successfully.
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800/80 bg-gray-950 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-center md:text-left">
+                <a href="#hero" class="text-lg font-bold text-white flex items-center justify-center md:justify-start gap-2 mb-2">
+                    <span class="w-7 h-7 rounded-lg bg-indigo-600 flex items-center justify-center text-white text-xs font-bold">YS</span>
+                    <span class="gradient-text">Youssef Sherif</span>
+                </a>
+                <p class="text-xs text-gray-400 max-w-md">
+                    Computer Engineering student & aspiring Data Analyst / Software Developer. Building robust databases and insightful data solutions.
+                </p>
+            </div>
+
+            <div class="flex items-center space-x-6 text-gray-400">
+                <a href="[YOUR LINKEDIN]" target="_blank" class="hover:text-indigo-400 transition-colors text-lg"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="[YOUR GITHUB]" target="_blank" class="hover:text-indigo-400 transition-colors text-lg"><i class="fa-brands fa-github"></i></a>
+                <a href="mailto:[YOUR EMAIL]" class="hover:text-indigo-400 transition-colors text-lg"><i class="fa-regular fa-envelope"></i></a>
+            </div>
+
+            <div class="text-xs text-gray-500 text-center md:text-right">
+                &copy; <span id="current-year"></span> Youssef Sherif. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Functionality -->
+    <script>
+        // Set dynamic copyright year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Contact form submission handler (client-side validation & success message)
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (name && email && subject && message) {
+                const successMsg = document.getElementById('form-success-msg');
+                successMsg.classList.remove('hidden');
+                document.getElementById('contact-form').reset();
+                setTimeout(() => {
+                    successMsg.classList.add('hidden');
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>
